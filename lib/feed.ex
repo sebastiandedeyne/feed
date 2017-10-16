@@ -31,18 +31,14 @@ defmodule Feed do
   end
 
   def to_atom(_feed) do
-    
   end
 
   def to_json(_feed) do
-    
   end
 
   def to_rss(_feed) do
-    
   end
 
   def links(_feed) do
-    
   end
 end

@@ -20,7 +20,7 @@ defmodule Feed.Renderers.Atom do
       h("link", rel: "alternate", href: item.uri),
       h("id", item.id),
       h("author", h("name", cdata(item.author))),
-      h("summary", [type: "html"], cdata(item.summary)),
+      h("summary", [type: "html"], cdata(item.summary))
       # h("updated", DateTime.to_iso8601(item.updated))
     ])
   end
