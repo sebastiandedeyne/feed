@@ -1,0 +1,3 @@
+%{
+  "hyper_ex": {:hex, :hyper_ex, "0.1.0", "7af567034cc5d3447c9d356ae3571e7bdec0c0661a3833e8eca97422c0f457d5", [], [], "hexpm"},
+}
