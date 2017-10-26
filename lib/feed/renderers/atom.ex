@@ -2,19 +2,15 @@ defmodule Feed.Renderers.Atom do
   import HyperEx
   import Feed.Util
 
-  @doc """
-  ## Examples
+  def render(feed) do
+    h("feed", [xmlns: "http://www.w3.org/2005/Atom"], [
+      h("id", feed.uri),
+      h("link", [href: feed.uri]),
+      h("title", feed.title)
+    ] ++ Enum.map(feed.items, &render_item/1))
+  end
 
-      iex> %Feed.Item{
-      ...>   id: "hello-world",
-      ...>   title: "Hello, world!",
-      ...>   summary: "Just saying hi!",
-      ...>   uri: "https://example.com/hello-world",
-      ...>   author: "Sebastian De Deyne"
-      ...> } |> Feed.Renderers.Atom.render()
-      ~S{<entry><title><![CDATA[Hello, world!]]></title><link rel="alternate" href="https://example.com/hello-world"><id>hello-world</id><author><name><![CDATA[Sebastian De Deyne]]></name></author><summary type="html"><![CDATA[Just saying hi!]]></summary></entry>}
-  """
-  def render(item) do
+  defp render_item(item) do
     h("entry", [
       h("title", cdata(item.title)),
       h("link", rel: "alternate", href: item.uri),

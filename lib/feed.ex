@@ -30,7 +30,8 @@ defmodule Feed do
     %Feed{feed | items: feed.items ++ [item]}
   end
 
-  def to_atom(_feed) do
+  def to_atom(feed) do
+    Feed.Renderers.Atom.render(feed)
   end
 
   def to_json(_feed) do
